@@ -73,3 +73,8 @@ export default AboutPage;
     console.log('Submitted:', { firstName, password });
   };
 ```
+
+8. selected css style (usually we use it by do ```className```) can be used in 
+    - <main>
+    - <div>
+
