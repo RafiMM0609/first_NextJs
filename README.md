@@ -56,8 +56,8 @@ export default AboutPage;
 ```
 
 3. honestly i still learn, what the meaning of React.FC
-4. usually i use <main> at start and </main> for the end
-5. then we can add <section> or <div> what ever we want
+4. usually i use main at start and main for the end
+5. then we can add section or div what ever we want
 6. if we use variable that will be proccesed using ts (not only html) we must state it like 
 
 ```
@@ -75,6 +75,8 @@ export default AboutPage;
 ```
 
 8. selected css style (usually we use it by do ```className```) can be used in 
-    - <main>
-    - <div>
+    - main
+    - div
+    - section
 
+9. 
