@@ -2,8 +2,8 @@ import React, { useState, FormEvent } from 'react';
 import styles from './login.module.css'; // Assuming you use CSS modules
 
 const LoginPage: React.FC = () => {
-  const [firstName, setFirstName] = useState('xixixr');
-  const [password, setLastName] = useState('password123');
+  const [firstName, setName] = useState('xixixr');
+  const [password, setPass] = useState('password123');
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Prevent the default form submission
@@ -21,7 +21,7 @@ const LoginPage: React.FC = () => {
             id="name"
             name="name"
             value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
             className={styles.input}
           />
         </div>
@@ -32,7 +32,7 @@ const LoginPage: React.FC = () => {
             id="Password"
             name="Password"
             value={password}
-            onChange={(e) => setLastName(e.target.value)}
+            onChange={(e) => setPass(e.target.value)}
             className={styles.input}
           />
         </div>
