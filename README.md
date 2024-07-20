@@ -79,4 +79,41 @@ export default AboutPage;
     - div
     - section
 
-9. 
+
+
+## CSS maybe i know
+
+1. text-align: center; use to center text
+2. text-color:#333; use to color text
+2. font-weight: bold; use to adjust font style like(bold, italic)
+3. font-size: 18px; use to adjust font size
+4. if it have same function maybe we can write like 
+
+```
+.leftText, .rightText {
+```
+
+5. if want add 2 view that stand in left and rigt but in the same high we can do this by
+
+```
+.leftText, .rightText {
+  flex: 1;
+  margin: 0 1rem; /* Space between sections */
+  padding: 1rem;
+  background-color: #f9f9f9; /* Optional: background color for visibility */
+  border: 1px solid #ddd; /* Optional: border for visibility */
+}
+
+.leftText {
+  background: linear-gradient(to bottom, #f0f0f0, #d9d9d9); /* Gradation gray background */
+}
+
+.rightText {
+  background: linear-gradient(to bottom, #f0f0f0, #d9d9d9); /* Gradation gray background */
+  min-height: 100%; /* make sure high in same value
+}
+````
+
+
+
+
