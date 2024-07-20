@@ -19,12 +19,16 @@
 
 .formGroup {
   margin-bottom: 1rem;
+  font-size: 18px;
+  text-align: center;
+  text-color:#333;
 }
 
 .label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;
+  color: #333;
 }
 
 .input {
@@ -32,7 +36,17 @@
   padding: 0.75rem;
   border: 1px solid #ddd;
   border-radius: 4px;
-  box-sizing: border-box;
+  box-sizing: border-box;  
+  transition: all 0.3s ease;
+  font-size: 18px;
+  text-align: center;
+}
+
+.input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  transform: scale(1.05);
 }
 
 .submitButton {
@@ -44,10 +58,12 @@
   border-radius: 4px;
   font-size: 1rem;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .submitButton:hover {
   background-color: #005bb5; /* Darker blue on hover */
+  transform: scale(1.05);
 }
 
 .infoText {
