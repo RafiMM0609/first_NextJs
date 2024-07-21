@@ -6,30 +6,30 @@ import { serialize } from 'next-mdx-remote/serialize';
 import React from 'react';
 import fs from 'fs';
 import path from 'path';
-
-interface RemoteMdxPageProps {
-  mdxSource: MDXRemoteSerializeResult;
-}
+import type { GetStaticProps } from 'next'
+//import ExampleComponent from './example'
 
 const components = {
   // Define your custom components here
 };
 
-const RemoteMdxPage: React.FC<RemoteMdxPageProps> = ({ mdxSource }) => {
-  return <MDXRemote {...mdxSource} components={components} />;
-};
+interface Props {
+  mdxSource: MDXRemoteSerializeResult
+}
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export default function ExamplePage({ mdxSource }: Props) {
+  return (
+    <div>
+      <MDXRemote {...mdxSource} components={components} />
+    </div>
+  )
+}
+
+export const getStaticProps: GetStaticProps<{
+  mdxSource: MDXRemoteSerializeResult
+}> = async () => {
   const filePath = path.join(process.cwd(), 'README.md');
   const markdown = fs.readFileSync(filePath, 'utf-8');
-  const mdxSource = await serialize(markdown);
-
-  return {
-    props: {
-      mdxSource,
-    },
-  };
-};
-
-export default RemoteMdxPage;
-
+  const mdxSource = await serialize(markdown)
+  return { props: { mdxSource } }
+}
