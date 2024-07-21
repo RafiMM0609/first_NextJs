@@ -1,9 +1,9 @@
 // src/pages/_app.tsx
-//import '../styles/globals.css';
 import { AppProps } from 'next/app';
 import Navbar from '../components/Navbar';
 import { Inter } from "next/font/google";
-
+import "./about.module.css";
+import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {

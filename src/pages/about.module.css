@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   margin: 2rem;
+  background: linear-gradient(to bottom, #f0f0f0, #d9d9d9); /* Gradation gray background */
 }
 
 .centerText {

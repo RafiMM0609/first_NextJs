@@ -38,7 +38,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## nextjs using ts
 
-1. usualy in every top of page i do 
+1. usually in every top of page i do 
 
 ```
 import React from 'react';
@@ -58,7 +58,7 @@ export default AboutPage;
 3. honestly i still learn, what the meaning of React.FC
 4. usually i use main at start and main for the end
 5. then we can add section or div what ever we want
-6. if we use variable that will be proccesed using ts (not only html) we must state it like 
+6. if we use variable that will be procesed using ts (not only html) we must state it like 
 
 ```
   const [firstName, setName] = useState('xixixr');
@@ -93,7 +93,7 @@ export default AboutPage;
 .leftText, .rightText {
 ```
 
-5. if want add 2 view that stand in left and rigt but in the same high we can do this by
+5. if want add 2 view that stand in left and right but in the same high we can do this by
 
 ```
 .leftText, .rightText {

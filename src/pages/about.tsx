@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './about.module.css'; // Assuming you use CSS modules
 import { GetServerSideProps } from 'next';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
@@ -18,13 +17,13 @@ const components = {
 const AboutPage: React.FC<AboutPageProps> = ({ mdxSource }) => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <section className={styles.centerText}>
+      <section className="centerText">
         <h1>About Page</h1>
         <p>This is my first attempt at front-end development. Bismillah!</p>
       </section>
 
-      <div className={styles.contentWrapper}>
-        <section className={styles.leftText}>
+      <div className="contentWrapper">
+        <section className="leftText">
           <h2>More About This Page</h2>
           <p>
             This page provides information about the purpose and content of this
@@ -33,7 +32,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ mdxSource }) => {
           </p>
         </section>
 
-        <section className={styles.rightText}>
+        <section className="rightText">
           <h2>Additional Information</h2>
           <p>
             This section contains additional details that complement the main
@@ -41,7 +40,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ mdxSource }) => {
             information relevant to the page topic.
           </p>
         </section>
-        <section className={styles.previewSection}>
+        <section className="previewSection">
           <h2>Preview from MDX Content</h2>
           <MDXRemote {...mdxSource} components={components} />
           <Link href="/trymd">

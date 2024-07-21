@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 200, 200, 200;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 200, 200, 200;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+  }
+  .centerText {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .contentWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px; /* Adjust based on your design */
+    margin: 0 auto; /* Center the wrapper horizontally */
+  }
+
+  .leftText, .rightText, .previewSection{
+    flex: 1;
+    margin: 0 1rem; /* Space between sections */
+    padding: 1rem;
+    max-width: 800px;
+    max-height: 400px; /* Set a maximum height */ 
+    border-radius: 8px; /* Rounded corners for a modern look */
+    background: linear-gradient(to bottom, #000000, #1a1a1a);
+  }
+
+  .rightText {
+    min-height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .contentWrapper {
+      flex-direction: column;
+    }
+
+    .leftText, .rightText {
+      margin: 1rem 0;
+    }
+  }
+
+  /* for preview */
+
+  /* Style the heading inside the preview section */
+  .previewSection h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Style the link in the preview section */
+  .previewSection a {
+    color: #0070f3; /* Color for the link */
+    text-decoration: none; /* Remove underline from the link */
+    font-weight: bold;
+  }
+
+  .previewSection a:hover {
+    text-decoration: underline; /* Underline on hover for better user experience */
+  }
+}
