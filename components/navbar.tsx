@@ -19,8 +19,11 @@ const Navbar: React.FC = () => {
         <li className={`${styles.navItem} ${'/login' ? styles.active : ''}`}>
           <Link href="/login">Login</Link>
         </li>
-        <li className={`${styles.navItem} ${'/trymd' ? styles.active : ''}`}>
-          <Link href="/trymd">MDX</Link>
+        <li className={`${styles.navItem} ${'/mdx' ? styles.active : ''}`}>
+          <Link href="/mdx">MDX</Link>
+        </li>
+        <li className={`${styles.navItem} ${'/article' ? styles.active : ''}`}>
+          <Link href="/article">Article</Link>
         </li>
         {/* Add more links as needed */}
       </ul>
@@ -29,4 +32,5 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+
 

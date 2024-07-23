@@ -1,27 +1,30 @@
-import React from 'react';
-import { GetServerSideProps } from 'next';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import dynamic from 'next/dynamic';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
 
-interface AboutPageProps {
-  mdxSource: MDXRemoteSerializeResult;
+// Dynamically import the client component
+const ClientMDXComponent = dynamic(() => import('../cmdx'), { ssr: false });
+
+async function fetchMdxContent(): Promise<MDXRemoteSerializeResult> {
+  const filePath = path.join(process.cwd(), 'test.mdx');
+  const content = fs.readFileSync(filePath, 'utf-8');
+  const mdxSource = await serialize(content);
+  return mdxSource;
 }
 
-const components = {
-  // Define your custom components here
-};
 
-const AboutPage: React.FC<AboutPageProps> = ({ mdxSource }) => {
+export default async function AboutPage() {
+  const mdxSource = await fetchMdxContent();
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <section className="centerText">
         <h1>About Page</h1>
         <p>This is my first attempt at front-end development. Bismillah!</p>
       </section>
-
       <div className="contentWrapper">
         <section className="leftText">
           <h2>More About This Page</h2>
@@ -31,7 +34,6 @@ const AboutPage: React.FC<AboutPageProps> = ({ mdxSource }) => {
             find and how they can navigate through the different sections.
           </p>
         </section>
-
         <section className="rightText">
           <h2>Additional Information</h2>
           <p>
@@ -40,31 +42,15 @@ const AboutPage: React.FC<AboutPageProps> = ({ mdxSource }) => {
             information relevant to the page topic.
           </p>
         </section>
-        <section className="previewSection">
-          <h2>Preview from MDX Content</h2>
-          <MDXRemote {...mdxSource} components={components} />
-          <Link href="/trymd">
-            Read more...
+        <section className="rightText">
+          <h2>Preview content</h2>
+          <ClientMDXComponent mdxSource={mdxSource} />
+          <Link href="/mdx">
+            Read More...
           </Link>
         </section>
       </div>
     </main>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const filePath = path.join(process.cwd(), 'README.md');
-  const markdown = fs.readFileSync(filePath, 'utf-8');
-  const previewLength = 200; 
-  const truncatedMarkdown = markdown.substring(0, previewLength);
-  const mdxSource = await serialize(truncatedMarkdown);
-  return {
-    props: {
-      mdxSource,
-    },
-  };
-};
-
-
-export default AboutPage;
+}
 

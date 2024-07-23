@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 200, 200, 200;
+  --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 200, 200, 200;
+    --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
@@ -30,6 +30,41 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  /*about page*/
+  .cenyerText {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .contentWrapper {
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .leftText, .rightText {
+    flex: 1;
+    margin: 0 1rem;
+    padding: 1rem;
+    max-width: 800px;
+    max-height: 400px;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #000000, #1a1a1a);
+  }
+  .contentArticle {
+    flex: 1;
+    margin: 0 1rem;
+    padding: 1rem;
+    max-width: 800px;
+    max-height: 400px;
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #000000, #1a1a1a);
+  }
+  .rightText {
+    min-height: 100%;
+  }
   .container {
     display: flex;
     flex-direction: column;
@@ -37,62 +72,6 @@ body {
     margin: 2rem;
     justify-content: center;
   }
-  .centerText {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .contentWrapper {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1200px; /* Adjust based on your design */
-    margin: 0 auto; /* Center the wrapper horizontally */
-  }
-
-  .leftText, .rightText, .previewSection{
-    flex: 1;
-    margin: 0 1rem; /* Space between sections */
-    padding: 1rem;
-    max-width: 800px;
-    max-height: 400px; /* Set a maximum height */ 
-    border-radius: 8px; /* Rounded corners for a modern look */
-    background: linear-gradient(to bottom, #000000, #1a1a1a);
-  }
-
-  .rightText {
-    min-height: 100%;
-  }
-
-  @media (max-width: 768px) {
-    .contentWrapper {
-      flex-direction: column;
-    }
-
-    .leftText, .rightText {
-      margin: 1rem 0;
-    }
-  }
-
-  /* for preview */
-
-  /* Style the heading inside the preview section */
-  .previewSection h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  /* Style the link in the preview section */
-  .previewSection a {
-    color: #0070f3; /* Color for the link */
-    text-decoration: none; /* Remove underline from the link */
-    font-weight: bold;
-  }
-
-  .previewSection a:hover {
-    text-decoration: underline; /* Underline on hover for better user experience */
-  }
-
   .loginForm {
     padding: 2rem;
     border-radius: 8px;
@@ -100,14 +79,12 @@ body {
     width: 100%;
     max-width: 400px; /* Adjust based on your design */
   }
-
   .formGroup {
     margin-bottom: 1rem;
     font-size: 18px;
     text-align: center;
     text-color:#333;
   }
-
   .label {
     display: block;
     margin-bottom: 0.5rem;
@@ -151,9 +128,4 @@ body {
     transform: scale(1.05);
   }
 
-  .infoText {
-    text-align: center;
-    margin-top: 1rem;
-    color: #666;
-  }
 }
