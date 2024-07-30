@@ -2,13 +2,17 @@
 
 import React, {useRef} from 'react';
 
-const VerticalScroll: React.FC = () => {
+interface DynamicContentProps {
+  initialValue: string[];
+}
+
+const VerticalScroll: React.FC<DynamicContentProps> = ({initialValue}) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scrollByAmount = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
       const container = scrollRef.current;
-      const scrollAmount = container.scrollWidth / 3; // Adjust as needed
+      const scrollAmount = container.scrollWidth / 4; // Adjust as needed
       container.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'
@@ -33,8 +37,8 @@ const VerticalScroll: React.FC = () => {
           >
             <div className="flex gap-4 p-4 h-full">
               {/* Add your horizontally scrollable content here */}
-              {[1, 2, 3, 4, 5].map((item) => (
-                <div key={item} className="flex-none w-[800px] h-full p-4 rounded-lg overflow-y-auto bg-custom-gradient">
+              {initialValue.map((item) => (
+                <div key={item} className="flex-none w-[900px] h-full p-4 rounded-lg scrollbar-hidden overflow-y-auto bg-custom-gradient">
                   <h3 className="text-xl font-semibold mb-2">Item {item}</h3>
                   <p>This is the content for item {item}. It can scroll vertically if it overflows.</p>
                 </div>

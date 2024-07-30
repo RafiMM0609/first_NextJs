@@ -16,7 +16,7 @@ async function getMdxContent() {
 
 export default async function Page() {
   const mdxSource = await getMdxContent();
-
+  const initialVerScrol = ["TextFree (formerly called Pinger and sometimes stylized as textfree) is a mobile application and web service that allows users to send and receive text messages, as well as make and receive VoIP phone calls, for free over the internet. The service costs nothing because it is supported by ads, but users have the option of paying for an ad-free version with enhanced features. TextFree was developed by American telecommunications provider Pinger, Inc. It was released in 2006.","TextFree (formerly called Pinger and sometimes stylized as textfree) is a mobile application and web service that allows users to send and receive text messages, as well as make and receive VoIP phone calls, for free over the internet. The service costs nothing because it is supported by ads, but users have the option of paying for an ad-free version with enhanced features. TextFree was developed by American telecommunications provider Pinger, Inc. It was released in 2006.","TextFree (formerly called Pinger and sometimes stylized as textfree) is a mobile application and web service that allows users to send and receive text messages, as well as make and receive VoIP phone calls, for free over the internet. The service costs nothing because it is supported by ads, but users have the option of paying for an ad-free version with enhanced features. TextFree was developed by American telecommunications provider Pinger, Inc. It was released in 2006.","TextFree (formerly called Pinger and sometimes stylized as textfree) is a mobile application and web service that allows users to send and receive text messages, as well as make and receive VoIP phone calls, for free over the internet. The service costs nothing because it is supported by ads, but users have the option of paying for an ad-free version with enhanced features. TextFree was developed by American telecommunications provider Pinger, Inc. It was released in 2006."]
   const initialSections = [
     {
       title: "More About This Page",
@@ -54,7 +54,7 @@ export default async function Page() {
   <div className="max-w-7xl mx-auto">
     {/* New horizontally scrollable section */}
     <div className="mb-8">
-      <VerticalScroll />
+      <VerticalScroll initialValue={initialVerScrol} />
     </div>
     <div className="contentWrapper">
       <DynamicContent initialSections={initialSections} /> 
