@@ -6,7 +6,7 @@ interface DynamicContentProps {
   initialValue: string[];
 }
 
-const VerticalScroll: React.FC<DynamicContentProps> = ({initialValue}) => {
+const VerticalScrollClient: React.FC<DynamicContentProps> = ({initialValue}) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scrollByAmount = (direction: 'left' | 'right') => {
@@ -57,4 +57,4 @@ const VerticalScroll: React.FC<DynamicContentProps> = ({initialValue}) => {
   );
 };
 
-export default VerticalScroll;
+export default VerticalScrollClient;
