@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import DynamicContent from '@/components/DynamicContent';
 import dynamic from 'next/dynamic';
+import VerticalScroll from '@/components/VerticalScroll';
 
 const ClientMDXComponent = dynamic(() => import('@/components/cmdx'), { ssr: false });
 async function getMdxContent() {
@@ -49,5 +50,15 @@ export default async function Page() {
     }
   ];
 
-  return <DynamicContent initialSections={initialSections} />;
+  return (
+  <div className="max-w-7xl mx-auto">
+    {/* New horizontally scrollable section */}
+    <div className="mb-8">
+      <VerticalScroll />
+    </div>
+    <div className="contentWrapper">
+      <DynamicContent initialSections={initialSections} /> 
+    </div>
+  </div>
+  );
 }

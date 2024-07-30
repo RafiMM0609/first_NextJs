@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import dynamic from 'next/dynamic';
 
-const ClientMDXComponent = dynamic(() => import('../cmdx'), { ssr: false });
+const ClientMDXComponent = dynamic(() => import('@/components/cmdx'), { ssr: false });
 
 const components = {
   // Define your custom components here
