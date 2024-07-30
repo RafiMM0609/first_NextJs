@@ -1,56 +1,53 @@
-import dynamic from 'next/dynamic';
-import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import React from 'react';
 import { serialize } from 'next-mdx-remote/serialize';
 import fs from 'fs';
 import path from 'path';
-import Link from 'next/link';
+import DynamicContent from '@/components/DynamicContent';
+import dynamic from 'next/dynamic';
 
-// Dynamically import the client component
-const ClientMDXComponent = dynamic(() => import('../cmdx'), { ssr: false });
-
-async function fetchMdxContent(): Promise<MDXRemoteSerializeResult> {
+const ClientMDXComponent = dynamic(() => import('@/components/cmdx'), { ssr: false });
+async function getMdxContent() {
   const filePath = path.join(process.cwd(), 'test.mdx');
   const content = fs.readFileSync(filePath, 'utf-8');
   const mdxSource = await serialize(content);
   return mdxSource;
 }
 
+export default async function Page() {
+  const mdxSource = await getMdxContent();
 
-export default async function AboutPage() {
-  const mdxSource = await fetchMdxContent();
+  const initialSections = [
+    {
+      title: "More About This Page",
+      content: "This page provides information about the purpose and content of this website.",
+      className: "leftText"
+    },
+    {
+      title: "Additional Information",
+      content: "This section contains additional details that complement the main content.",
+      className: "rightText"
+    },
+    {
+      title: "More About This Page",
+      content: "This page provides information about the purpose and content of this website.",
+      className: "leftText"
+    },
+    {
+      title: "Additional Information",
+      content: "This section contains additional details that complement the main content.",
+      className: "rightText"
+    },
+    {
+      title: "Additional Information",
+      content: "This section contains additional details that complement the main content.",
+      className: "rightText"
+    },
+    {
+      title: "MDX Content",
+      content: <ClientMDXComponent mdxSource={mdxSource} />,
+      className: "rightText"
+    }
+  ];
 
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <section className="centerText">
-        <h1>About Page</h1>
-        <p>This is my first attempt at front-end development. Bismillah!</p>
-      </section>
-      <div className="contentWrapper">
-        <section className="leftText">
-          <h2>More About This Page</h2>
-          <p>
-            This page provides information about the purpose and content of this
-            website. It serves as an introduction to what users can expect to
-            find and how they can navigate through the different sections.
-          </p>
-        </section>
-        <section className="rightText">
-          <h2>Additional Information</h2>
-          <p>
-            This section contains additional details that complement the main
-            content. Here, you can provide further insights or supplementary
-            information relevant to the page topic.
-          </p>
-        </section>
-        <section className="rightText">
-          <h2>Preview content</h2>
-          <ClientMDXComponent mdxSource={mdxSource} />
-          <Link href="/mdx">
-            Read More...
-          </Link>
-        </section>
-      </div>
-    </main>
-  );
+  return <DynamicContent initialSections={initialSections} />;
 }
-
