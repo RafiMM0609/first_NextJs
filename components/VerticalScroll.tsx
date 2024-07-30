@@ -34,7 +34,7 @@ const VerticalScroll: React.FC = () => {
             <div className="flex gap-4 p-4 h-full">
               {/* Add your horizontally scrollable content here */}
               {[1, 2, 3, 4, 5].map((item) => (
-                <div key={item} className="flex-none w-[800px] h-full p-4 rounded-lg overflow-y-auto" style={{ background: 'linear-gradient(to bottom, #000000, #1a1a1a)' }}>
+                <div key={item} className="flex-none w-[800px] h-full p-4 rounded-lg overflow-y-auto bg-custom-gradient">
                   <h3 className="text-xl font-semibold mb-2">Item {item}</h3>
                   <p>This is the content for item {item}. It can scroll vertically if it overflows.</p>
                 </div>

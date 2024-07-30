@@ -21,32 +21,32 @@ export default async function Page() {
     {
       title: "More About This Page",
       content: "This page provides information about the purpose and content of this website.",
-      className: "leftText"
+      className: "bg-custom-gradient leftText"
     },
     {
       title: "Additional Information",
       content: "This section contains additional details that complement the main content.",
-      className: "rightText"
+      className: "bg-custom-gradient rightText"
     },
     {
       title: "More About This Page",
       content: "This page provides information about the purpose and content of this website.",
-      className: "leftText"
+      className: "bg-custom-gradient leftText"
     },
     {
       title: "Additional Information",
       content: "This section contains additional details that complement the main content.",
-      className: "rightText"
+      className: "bg-custom-gradient rightText"
     },
     {
       title: "Additional Information",
       content: "This section contains additional details that complement the main content.",
-      className: "rightText"
+      className: "bg-custom-gradient rightText"
     },
     {
       title: "MDX Content",
       content: <ClientMDXComponent mdxSource={mdxSource} />,
-      className: "rightText"
+      className: "bg-custom-gradient rightText"
     }
   ];
 
